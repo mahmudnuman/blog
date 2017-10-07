@@ -3,7 +3,7 @@
         <div class="grid_10">
             <div class="box round first grid">
                 <h2>Post List</h2>
-                <div class="block">  
+                <div class="block">
                     <table class="data display datatable" id="example">
 					<thead>
 						<tr>
@@ -12,10 +12,10 @@
 							<th width="15%">Description</th>
 							<th width="10%">Category</th>
 							<th width="10%">Image</th>
-                            <th width="8%">Author</th>
-                            <th width="10%">Tags</th>
-                            <th width="18%">Date</th>
-							<th width="10%">Action</th>
+              <th width="8%">Author</th>
+              <th width="10%">Tags</th>
+              <th width="10%">Date</th>
+							<th width="18%">Action</th>
 						</tr>
 					</thead>
 					<tbody><?php
@@ -30,23 +30,30 @@
                     ?>
 						<tr class="odd gradeX">
                             <td><?php echo $i;?></td>
-                            <td><a href="editpost.php?editpostid=<?php echo $result['id'];?>"><?php echo $result['title'];?></a></td>
-							<td><?php echo $fm->textshorten($result['body'],50);?></td>
-							<td><?php echo $result['name'];?></td>
-							<td><img src="<?php echo $result['image'];?>" height="40px" width="60px"/></td>
+                            <td><?php echo $result['title'];?></td>
+							              <td><?php echo $fm->textshorten($result['body'],50);?></td>
+							              <td><?php echo $result['name'];?></td>
+							              <td><img src="<?php echo $result['image'];?>" height="40px" width="60px"/></td>
                             <td><?php echo $result['author'];?></td>
                             <td><?php echo $result['tags'];?></td>
                             <td><?php echo $fm->formatDate( $result['date']);?></td>
-							<td>
-                                <a href="editpost.php?editpostid=<?php echo $result['id'];?>">Edit</a>
-                                ||
-                                <a onclick="return confirm('Are You sure to Delete ? ')" href="deletepost.php?delpostid=<?php echo $result['id'];?>">Delete</a>
+							              <td>
+
+                              <a href="viewpost.php?viewpostid=<?php echo $result['id'];?>">View</a>
+
+
+<?php if (Session::get('userId')==$result['userid'] || Session::get('userRole')=='1' ) { ?>
+  <a href="editpost.php?editpostid=<?php echo $result['id'];?>">|| Edit</a>
+                               ||
+  <a onclick="return confirm('Are You sure to Delete ? ')" href="deletepost.php?delpostid=<?php echo $result['id'];?>">Delete</a>.
+<?php  } ?>
+
                             </td>
 						</tr>
                     <?php }}?>
                     </tbody>
 				</table>
-	
+
                </div>
             </div>
         </div>
@@ -62,4 +69,3 @@
     });
 </script>
 <?php  include "inc/footer.php";?>
-

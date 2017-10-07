@@ -4,7 +4,7 @@ include "inc/sidebar.php";
 ?>
 <?php
 
-    if (!Session::get('UserRole')=='1') {
+    if (!Session::get('userRole')=='1') {
 
         echo "<script>window.location='index.php';</script>";
 
@@ -13,7 +13,7 @@ include "inc/sidebar.php";
 
  ?>
         <div class="grid_10">
-		
+
             <div class="box round first grid">
                 <h2>Add New User</h2>
                <div class="block copyblock">
@@ -45,7 +45,7 @@ include "inc/sidebar.php";
                         }
                         ?>
                  <form action="" method="post">
-                    <table class="form">					
+                    <table class="form">
                         <tr>
                         <td>
                         	<label>Username</label>
@@ -68,7 +68,7 @@ include "inc/sidebar.php";
                         </td>
                             <td>
                                 <select id="select" name="role">
-                                	
+
                                 	<option>Select User Role</option>
                                 	<option value="1" >Admin</option>
                                 	<option value="2" >Author</option>

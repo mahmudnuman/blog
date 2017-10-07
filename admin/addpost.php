@@ -2,7 +2,7 @@
 include "inc/sidebar.php";
 ?>
         <div class="grid_10">
-		
+
             <div class="box round first grid">
                 <h2>Add New Post</h2>
                 <?php
@@ -12,6 +12,7 @@ include "inc/sidebar.php";
                     $body = mysqli_real_escape_string($db->link, $_POST['body']);
                     $author = mysqli_real_escape_string($db->link, $_POST['author']);
                     $tags = mysqli_real_escape_string($db->link, $_POST['tags']);
+                    $userid = mysqli_real_escape_string($db->link, $_POST['userid']);
 
                     $permitted=array('jpg','jpeg','png','gif');
                     $file_name=$_FILES['image']['name'];
@@ -23,7 +24,7 @@ include "inc/sidebar.php";
                     $unique_image=substr(md5(time()),0,10).'.'.$file_ext;
                     $uploaded_image="upload/".$unique_image;
 
-                    if ($title==""||$cat==""||$body==""||$author==""||$tags==""||$file_name==""){
+                    if ($title==""||$cat==""||$body==""||$author==""||$tags==""||$file_name==""||$userid==""){
 
                         echo "<span style='color:red;font-size=18px;'>Epmty Feilds are not Allowed !</span>";
                     } elseif ($file_size>1048567){
@@ -35,7 +36,7 @@ include "inc/sidebar.php";
 
                     } else{
                             move_uploaded_file($file_temp,$uploaded_image);
-                            $query="INSERT INTO tbl_post(cat,title,body,image,author,tags) VALUES ('$cat','$title','$body','$uploaded_image','$author','$tags')";
+                            $query="INSERT INTO tbl_post(cat,title,body,image,author,tags,userid) VALUES ('$cat','$title','$body','$uploaded_image','$author','$tags','$userid')";
 
                             $insertpost=$db->insert($query);
                             if ($insertpost){
@@ -50,10 +51,10 @@ include "inc/sidebar.php";
                     }
                 }
                 ?>
-                <div class="block">               
+                <div class="block">
                  <form action="addpost.php" method="post" enctype="multipart/form-data">
                     <table class="form">
-                       
+
                         <tr>
                             <td>
                                 <label>Title</label>
@@ -62,7 +63,7 @@ include "inc/sidebar.php";
                                 <input type="text" name="title" placeholder="Enter Post Title..." class="medium" />
                             </td>
                         </tr>
-                     
+
                         <tr>
                             <td>
                                 <label>Category</label>
@@ -91,7 +92,7 @@ include "inc/sidebar.php";
                                 </select>
                             </td>
                         </tr>
-                   
+
 
                         <tr>
                             <td>
@@ -115,7 +116,11 @@ include "inc/sidebar.php";
                             </td>
                             <td>
                                 <input type="text" readonly name="author"  value="<?php echo Session::get('username'); ?>" class="medium" />
-                            </td> 
+                            </td>
+
+                            <td>
+                                <input type="hidden"  name="userid"  value="<?php echo Session::get('userId'); ?>" class="medium" />
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -154,5 +159,3 @@ include "inc/sidebar.php";
 </script>
             <!--load TinyMCE--->
         <?php include "inc/footer.php"?>
-
-

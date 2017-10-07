@@ -92,8 +92,8 @@ header("Cache-Control: max-age=2592000");
             <li class="ic-form-style"><a href="profile.php"><span>User Profile</span></a></li>
             <li class="ic-typography"><a href="changepassword.php"><span>Change Password</span></a></li>
             <li class="ic-grid-tables"><a href="inbox.php"><span>Inbox
-                    <?php 
-                        $query="SELECT * FROM tbl_contact WHERE status='0' ORDER BY id DESC";  
+                    <?php
+                        $query="SELECT * FROM tbl_contact WHERE status='0' ORDER BY id DESC";
                     $msg=$db->select($query);
                     if ($msg){
                         $count=mysqli_num_rows($msg);
@@ -104,14 +104,14 @@ header("Cache-Control: max-age=2592000");
                     }
                     ?>
             </span></a></li>
-            <?php 
+            <?php
 
-            if (Session::get('UserRole')=='1') {?>
-              
+            if (Session::get('userRole')=='1') {?>
+
                 <li class="ic-charts"><a href="adduser.php"><span>Add User</span></a></li>
 
            <?php } ?>
-            
+
              <li class="ic-charts"><a href="userlist.php"><span>User List</span></a></li>
         </ul>
     </div>

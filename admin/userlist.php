@@ -21,7 +21,7 @@
 
 
                 ?>
-                <div class="block">        
+                <div class="block">
                     <table class="data display datatable" id="example">
 					<thead>
 						<tr>
@@ -55,7 +55,7 @@
                             <td><?php echo $result['username']; ?></td>
                             <td><?php echo $result['email']; ?></td>
                             <td><?php echo $fm->textshorten($result['details'],30); ?></td>
-                            <td><?php 
+                            <td><?php
 
                                     if ($result['role']=='1') {
                                        echo "Admin";
@@ -67,7 +67,8 @@
 
 
                              ?></td>
-							<td><a  href="viewuser.php?userid=<?php echo $result['id']; ?>">View</a><a <?php if (Session::get('UserRole')=='1') {?> onclick="return confirm('Are You sure to Delete ? ')" href="?deluser=<?php echo $result['id']; ?>">|| Delete</a>
+							<td><a  href="viewuser.php?userid=<?php echo $result['id']; ?>">View</a>
+            <a <?php if (Session::get('userRole')=='1') {?> onclick="return confirm('Are You sure to Delete ? ')" href="?deluser=<?php echo $result['id']; ?>">|| Delete</a>
                                     <?php }?>
                             </td>
 						</tr>
