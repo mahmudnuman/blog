@@ -21,17 +21,27 @@ include "inc/sidebar.php";
                         if ($_SERVER['REQUEST_METHOD']=='POST') {
                             $username = $fm->validation($_POST['username']);
                             $password = $fm->validation(md5($_POST['password'])) ;
+                            $email = $fm->validation($_POST['email']);
                             $role = $fm->validation($_POST['role']);
 
                             $username = mysqli_real_escape_string($db->link, $username);
                             $password = mysqli_real_escape_string($db->link, $password);
                             $role = mysqli_real_escape_string($db->link, $role);
+                            $role = mysqli_real_escape_string($db->link, $email);
 
-                            if (empty($username)||empty($password)||empty($role)){
+
+                            if (empty($username)||empty($password)||empty($role) || empty($email) ){
                             echo "<span style='color:red;font-size=18px;'>Epmty Fields are not Allowed !</span>";
-                        }else{
+                        } else {
+                         $mailquery="SELECT * from tbl_user WHERE email='$email'";
+                          $mailcheck=$db->select($mailquery);
+                          if ($mailcheck!=false) {
+                            echo "<span style='color:red;font-size=18px;'>Email already Exists!</span>";
+                          }
 
-                                $query="INSERT INTO tbl_user (username,password,role) VALUES ('$username','$password','$role')";
+                        else {
+
+                                $query="INSERT INTO tbl_user (username,password,email,role) VALUES ('$username','$password','$email','$role')";
                                $userinsert= $db->insert($query);
                                if ($userinsert){
 
@@ -43,6 +53,7 @@ include "inc/sidebar.php";
                             }
 
                         }
+                      }
                         ?>
                  <form action="" method="post">
                     <table class="form">
@@ -59,7 +70,15 @@ include "inc/sidebar.php";
                         	<label>Password</label>
                         </td>
                             <td>
-                                <input type="text" name="password" placeholder="Enter Password..." class="medium" />
+                                <input type="password" name="password" placeholder="Enter Password..." class="medium" />
+                            </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        	<label>Email</label>
+                        </td>
+                            <td>
+                                <input type="email" name="email" placeholder="Enter Email" class="medium" />
                             </td>
                         </tr>
                         <tr>
