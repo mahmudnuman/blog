@@ -4,16 +4,23 @@
             <ul class="section menu">
                 <li><a class="menuitem">Site Option</a>
                     <ul class="submenu">
+                      <?php if (Session::get('userRole')=='1' || Session::get('userRole')=='3' ) { ?>
+
                         <li><a href="titleslogan.php">Title & Slogan</a></li>
                         <li><a href="social.php">Social Media</a></li>
                         <li><a href="copyright.php">Copyright</a></li>
-
+<?php  } ?>
                     </ul>
                 </li>
-
-                <li><a class="menuitem"> Pages</a>
+          <li><a class="menuitem"> Pages</a>
                     <ul class="submenu">
-                      <li><a href="addpage.php">Add New Pages</a> </li>
+                      <li>
+                        <?php
+                          if (Session::get('userRole')=='1') {?>
+                        <a href="addpage.php">Add New Pages</a>
+
+<?php  } ?>
+                      </li>
                       <?php
                         $query="SELECT * FROM tbl_page ";
                         $Pages=$db->select($query);

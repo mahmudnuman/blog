@@ -4,7 +4,7 @@ include "inc/sidebar.php";
 ?>
 <?php
 
-    if (!Session::get('userRole')=='1') {
+    if (Session::get('userRole')=='2' || Session::get('userRole')=='3') {
 
         echo "<script>window.location='index.php';</script>";
 

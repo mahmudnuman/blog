@@ -13,7 +13,7 @@ if (!isset($_GET['pageid'])||$_GET==NULL){
 
 ?>
 <style>
-.actiondel{margin-left: 10px;} 
+.actiondel{margin-left: 10px;}
 .actiondel a{
 
 background: #f0f0f0 none repeat scroll 0 0;
@@ -24,15 +24,18 @@ font-size: 20px;
 font-weight: normal;
 padding: 4px 10px;
 
-}   
+}
 
 </style>
         <div class="grid_10">
-		
+
             <div class="box round first grid">
                 <h2>Page Update</h2>
                 <?php
-                if ($_SERVER['REQUEST_METHOD']=='POST') { 
+                if  (Session::get('userRole')=='2') {
+                  echo "You are not Allowed to Update Any Content";
+                } else {
+                if ($_SERVER['REQUEST_METHOD']=='POST') {
                     $name = mysqli_real_escape_string($db->link, $_POST['name']);
                     $body = mysqli_real_escape_string($db->link, $_POST['body']);
 
@@ -55,7 +58,7 @@ padding: 4px 10px;
                     }
                 }
                 ?>
-                <div class="block"> 
+                <div class="block">
                 <?php
                         $query="SELECT * FROM tbl_page WHERE id='$id'";
                         $Pages=$db->select($query);
@@ -64,10 +67,10 @@ padding: 4px 10px;
 
 
 
-                    ?>              
+                    ?>
                  <form action=" " method="post" >
                     <table class="form">
-                       
+
                         <tr>
                             <td>
                                 <label>Name</label>
@@ -76,7 +79,7 @@ padding: 4px 10px;
                                 <input type="text" name="name" value="<?php echo $result['name'];?>" class="medium" />
                             </td>
                         </tr>
-                     
+
                         <tr>
                             <td style="vertical-align: top; padding-top: 9px;">
                                 <label>Content</label>
@@ -94,7 +97,7 @@ padding: 4px 10px;
                         </tr>
                     </table>
                     </form>
-                    <?php }}?>
+                  <?php }}}?>
                 </div>
             </div>
         </div>
@@ -116,5 +119,3 @@ padding: 4px 10px;
 </script>
             <!--load TinyMCE--->
         <?php include "inc/footer.php"?>
-
-

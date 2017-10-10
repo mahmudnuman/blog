@@ -2,11 +2,18 @@
 include "inc/sidebar.php";
 ?>
         <div class="grid_10">
-		
+		<?php
+
+
+
+if (Session::get('userRole')=='2') {
+  echo "<script>window.location='index.php';</script>";
+}
+     ?>
             <div class="box round first grid">
                 <h2>Add New Page</h2>
                 <?php
-                if ($_SERVER['REQUEST_METHOD']=='POST') { 
+                if ($_SERVER['REQUEST_METHOD']=='POST') {
                     $name = mysqli_real_escape_string($db->link, $_POST['name']);
                     $body = mysqli_real_escape_string($db->link, $_POST['body']);
 
@@ -29,10 +36,10 @@ include "inc/sidebar.php";
                     }
                 }
                 ?>
-                <div class="block">               
+                <div class="block">
                  <form action=" " method="post" >
                     <table class="form">
-                       
+
                         <tr>
                             <td>
                                 <label>Name</label>
@@ -41,7 +48,7 @@ include "inc/sidebar.php";
                                 <input type="text" name="name" placeholder="Enter Post Title..." class="medium" />
                             </td>
                         </tr>
-                     
+
                         <tr>
                             <td style="vertical-align: top; padding-top: 9px;">
                                 <label>Content</label>
@@ -79,5 +86,3 @@ include "inc/sidebar.php";
 </script>
             <!--load TinyMCE--->
         <?php include "inc/footer.php"?>
-
-
