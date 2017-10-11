@@ -62,7 +62,11 @@ $fm= new Format();
 			</div>
 		</form><!-- form -->
 		<div class="button">
-			<a href="#">Training with live project</a>
+			<a href="forgetpass.php">Forgot Password !</a>
+		</div>
+
+    <div class="button">
+			<a href="#">Kaktarua's Blog</a>
 		</div><!-- button -->
 	</section><!-- content -->
 </div><!-- container -->
