@@ -80,4 +80,4 @@ $fm= new Format();
 </div><!-- container -->
 </body>
 </html>
-<!-- User orget password and mail validation has been added here-->
+<!-- User forget password and mail validation has been added here-->
