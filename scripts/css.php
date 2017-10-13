@@ -17,10 +17,12 @@
 .samesidebar h2 {background:none 0 0 repeat scroll #E6AF4B;  border-bottom:2px solid #B7801C;color: #333}
 .readmore a {border:1px solid #B7801C;color:#B7801C;}
 .pagination a {background:0 0 no-repeat scroll #E6AF4B;border:1px solid #A7700C;color:#333333;}
-.footermenu ul li a {color:#E6AF4B;}
+.footermenu ul li a {color:#fff;}
 .samepost h2, .about h2 {color:#AC7511;}
 .about img {border:1px solid #B7801C;}
 .relatedpost h2 {background:none 0 0 repeat scroll #E6AF4B;border-bottom:2px solid #B7801C !important;}
+
+input[type="submit"] {background:none 0 0 repeat scroll #B7801C;}
 
 /*green*/
 .headersection,.footersection{background:none 0 0 repeat scroll green;}
@@ -43,5 +45,6 @@
 .samepost h2, .about h2 {color:green;}
 .about img {border:1px solid #35a535;}
 .relatedpost h2 {background:none 0 0 repeat scroll #35a535;border-bottom:2px solid green !important;}
+input[type="submit"] {border:1px solid green;background:none 0 0 repeat scroll #005600}
   /*red*/
 </style>
