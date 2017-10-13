@@ -1,0 +1,21 @@
+.headersection,.footersection{background:none 0 0 repeat scroll green;}
+.icon a {background:none 0 0 repeat scroll #2D9D2D;}
+.searchbtn input[type="text"] {background:#52c252;border:1px solid #034703;}
+.searchbtn input[type="submit"] {border:1px solid green;background:none 0 0 repeat scroll #005600}
+.searchbtn input[type="submit"]:hover {border:1px solid #52C252;background:none 0 0 repeat scroll #005600;}
+.navsection {background:none 0 0 repeat scroll #35a535;}
+.navsection ul li {border-left:1px solid green;border-right:1px solid #38a838;}
+.samepost h2 a {color:green;}
+.maincontent {background:none 0 0 repeat scroll #c9ffc9;}
+.samepost img {border:1px solid #35a535;}
+.contentsection{border:1px solid #35a535;background:#c9ffc9}
+.samesidebar h2 {background:none 0 0 repeat scroll #35a535;  border-bottom:2px solid green;color: #333}
+.readmore a {border:1px solid #35a535;color:#35a535;}
+.readmore a:hover {color: green}
+.pagination a {background:0 0 no-repeat scroll #35a535;border:1px solid green;color:#fff;}
+.pagination a:hover {background:0 0 no-repeat scroll green;border:1px solid #35a535;color:#fff;}
+.footermenu ul li a {color:#fff;}
+.samepost h2, .about h2 {color:green;}
+.about img {border:1px solid #35a535;}
+.relatedpost h2 {background:none 0 0 repeat scroll #35a535;border-bottom:2px solid green !important;}
+input[type="submit"] {border:1px solid green;background:none 0 0 repeat scroll #005600}

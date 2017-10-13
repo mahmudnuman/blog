@@ -25,7 +25,7 @@ if (isset($_GET['pageid'])) {
 } else { ?>
 
 
-	<title><?php echo $fm->title(); ?> - <?php echo TITLE; ?></title>"
+	<title><?php echo $fm->title(); ?> - <?php echo TITLE; ?></title>
 
 <?php  }?>
 	<title><?php echo TITLE; ?></title>

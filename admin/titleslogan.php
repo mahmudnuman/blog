@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
             $query = "UPDATE title_slogan SET
                         title='$title',
                         slogan='$slogan',
-                        logo='$uploaded_image' 
+                        logo='$uploaded_image'
                        WHERE id='1'";
             $updated_row = $db->update($query);
             if ($updated_row) {
@@ -58,9 +58,9 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
         }
     } else {
         $query = "UPDATE title_slogan SET
-                        
+
                         title='$title',
-                        slogan='$slogan' 
+                        slogan='$slogan'
                        WHERE id='1'";
         $updated_row = $db->update($query);
         if ($updated_row) {
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 }
 ?>
         <div class="grid_10">
-		
+
             <div class="box round first grid">
                 <h2>Update Site Title and Description</h2>
                 <div class="block sloginblock">
@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
                     ?>
                     <div class="leftside">
                         <form action="" method="post" enctype="multipart/form-data">
-                    <table class="form">					
+                    <table class="form">
                         <tr>
                             <td>
                                 <label>Website Title</label>
@@ -116,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
                                 <input type="file" name="logo" />
                             </td>
                         </tr>
-						
+
 						 <tr>
                             <td>
                             </td>
